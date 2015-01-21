@@ -1,0 +1,86 @@
+<!-- app/views/parents/create.blade.php -->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Add a New Parent</title>
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+
+<nav class="navbar navbar-inverse">
+	<div class="navbar-header">
+		<a class="navbar-brand" href="{{ URL::to('parents') }}">Parents</a>
+	</div>
+	<ul class="nav navbar-nav">
+		<li><a href="{{ URL::to('parents') }}">View All Parents</a></li>
+		<li><a href="{{ URL::to('parents/create') }}">Add a New Parent</a>
+	</ul>
+</nav>
+
+<h1>Add a New Parent</h1>
+
+<!-- if there are creation errors, they will show here -->
+{{ HTML::ul($errors->all()) }}
+
+{{ Form::open(array('url' => 'parents')) }}
+
+	<div class="form-group">
+		{{ Form::label('lname', 'Family Name') }}
+		{{ Form::text('lname', Input::old('lname'), array('class' => 'form-control')) }}
+	</div>
+
+	<div class="form-group">
+		{{ Form::label('fname', 'Name') }}
+		{{ Form::text('fname', Input::old('fname'), array('class' => 'form-control')) }}
+	</div>
+	<div class="form-group">
+		{{ Form::label('dob', 'Date of Birth') }}
+		{{ Form::text('dob', Input::old('dob'), array('class' => 'form-control')) }}
+	</div>
+	<div class="form-group">
+                {{ Form::label('parent', 'Father or Mother') }}
+                {{ Form::select('parent', array(' '=> 'Select a Parent', 'Father'=> 'Father', 'Mother'=>'Mother'), array('class' => 'form-control')) }}
+        </div>
+
+
+	<div class="form-group">
+		{{ Form::label('address', 'Address') }}
+		{{ Form::select('address', Input::old('address'), array('class' => 'form-control')) }}
+	</div>
+
+	 <div class="form-group">
+                {{ Form::label('country', 'Country') }}
+                {{ Form::select('country', $country_options, Input::old('country'), array('class' => 'form-control')) }}
+        </div>
+	<div class="form-group">
+                {{ Form::label('state', 'State') }}
+                {{ Form::text('state', Input::old('state'), array('class' => 'form-control')) }}
+        </div>
+
+
+	<div class="form-group">
+                {{ Form::label('postalcode', 'Postal Code') }}
+                {{ Form::text('postalcode', Input::old('postalcode'), array('class' => 'form-control')) }}
+        </div>
+	 <div class="form-group">
+                {{ Form::label('email', 'Email') }}
+                {{ Form::text('email', Input::old('email'), array('class' => 'form-control')) }}
+        </div>
+	<div class="form-group">
+                {{ Form::label('phone', 'Phone') }}
+                {{ Form::text('phone', Input::old('phone'), array('class' => 'form-control')) }}
+        </div>
+	<div class="form-group">
+                {{ Form::label('fax', 'Second Phone') }}
+                {{ Form::select('fax', array('class' => 'form-control')) }}
+        </div>
+
+
+	{{ Form::submit('Add New Parent', array('class' => 'btn btn-primary')) }}
+
+{{ Form::close() }}
+
+</div>
+</body>
+</html>

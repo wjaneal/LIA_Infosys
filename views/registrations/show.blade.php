@@ -1,0 +1,1 @@
+/var/www/infosys/app/views/registrations/show.blade.php

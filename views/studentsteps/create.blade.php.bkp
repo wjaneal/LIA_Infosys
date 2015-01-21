@@ -1,0 +1,19 @@
+@extends('layout')
+@section('content')
+<table>
+</table>
+ <H2>Student Step Assessment</H2>
+{{ Form::open(array('url' => 'studentsteps')) }}
+<H3>Please select a student:</H3>
+{{Form::select('student_id', $students, array('class'=>'form-control'))}}
+<H3>Please select a step:</H3>
+{{Form::select('step_id', $steps, array('class'=>'form-control'))}}
+<H3>Please select a teacher: </H3>
+{{Form::select('teacher_id', $students, array('class'=>'form-control'))}}
+<H3>Please sellect a level:</H3>
+{{Form::select('step', array('1'=>'1','2'=>'2','3'=>'3','4'=>'4','5'=>'5','6'=>'6'), array('class'=>'form-control'))}}
+<p>
+<p>
+{{ Form::submit('Submit Step')}}
+{{Form::close()}}
+@stop

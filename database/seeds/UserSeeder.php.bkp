@@ -1,0 +1,21 @@
+<?php
+
+class UserSeeder
+extends DatabaseSeeder
+{
+    public function run()
+    {
+        $users = [
+            [
+                "username" => "admin123",
+                "password" => Hash::make("admin123"),
+                "email"    => "admin123@example.com"
+            ], 
+        ];
+
+        foreach ($users as $user)
+        {
+            User::create($user);
+        }
+    }
+}

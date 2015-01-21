@@ -1,0 +1,5 @@
+<?php
+
+class STEP extends \Eloquent {
+	protected $fillable = [];
+}

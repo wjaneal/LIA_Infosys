@@ -1,0 +1,70 @@
+@extends("layout_international")
+@section("content")
+{{Form::model($students, array('route' => 'students', 'url'=>'students')) }}
+
+<table >
+	<tr>
+		<td>
+		{{Form::label('slname', 'Family Name:')}}
+		<td>
+		{{Form::text('slname')  }}
+		<td>
+		{{Form::label('sfname', 'Name:')}}
+		<td>
+		{{Form::text('sfname')  }}
+	<tr>
+		<td>
+		{{Form::label('snname', 'Nick Name(optional):')}}
+		<td>
+		{{Form::text('snname')  }}
+		<td>
+		{{Form::label('gender', 'Gender:')}}
+		<td>
+		{{Form::select('gender', array('F' => 'Female', 'M' => 'Male'))}}
+
+	<tr>
+		<td>
+		{{Form::label('country', 'Country of Origin:')}}
+		<td>
+		{{Form::text('Country')  }}
+		<td>
+		{{Form::label('flanguage', 'First Language:')}}
+		<td>
+		{{Form::text('flanguage')  }}
+
+	<tr>
+		<td>
+		{{Form::label('account_name', 'Account Name:')}}
+		<td>
+		{{Form::text('account_name')  }}
+	<tr>	
+		<td>
+		{{Form::label('student_email', 'Email:')}}
+		<td>
+		{{Form::text('student_email_1')  }}
+		<td>
+		{{Form::label('parent_email1', 'Parent Email 1:')}}
+		<td>
+		{{Form::text('parent_email_1')  }}
+		<td>
+		{{Form::label('parent_email2', 'Parent Email 2:')}}
+		<td>
+		{{Form::text('parent_email_2')  }}
+	<tr>
+		<td>
+		{{Form::label('immigration', 'Immigration Status:')}}
+		<td>
+		{{Form::text('immigration')  }}
+	<tr>
+		<td>
+		{{Form::submit("Submit") }}
+	</table>
+	
+
+
+{{ Form::close() }}
+
+
+
+
+@stop

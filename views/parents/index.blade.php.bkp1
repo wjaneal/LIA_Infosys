@@ -1,0 +1,102 @@
+<!-- app/views/students/create.blade.php -->
+
+<!DOCTYPE html>
+<html>
+<head>
+        <title>Add a New Student</title>
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+<div class = "image"><img src="../public/tight.jpg" width=25%></img></div>
+<div class = "title"><H1>Student Information System</H1></div>
+<nav class="navbar navbar-inverse">
+        <div class="navbar-header">
+                <a class="navbar-brand" href="{{ URL::to('students') }}">Students</a>
+        </div>
+        <ul class="nav navbar-nav">
+                <li><a href="{{ URL::to('students') }}">View All Students</a></li>
+                <li><a href="{{ URL::to('students/create') }}">Add a New Student</a>
+        </ul>
+</nav>
+<h1>List of Students</h1>
+
+
+
+
+
+.
+<table border = 2>
+	@foreach($students as $key => $value)
+		<tr>
+			<td>{{ $value->id }}</td>
+		<tr>
+			<td>{{ $value->slname }}</td>
+		<tr>
+			<td>{{ $value->sfname }}</td>
+		<tr>
+			<td>{{$value->grade}}</td>
+		<tr>
+			<td>{{$value->country}}</td>
+		<tr>
+			<td>{{$value->gender}}</td>
+		<tr>
+			<td>{{$value->account_name}}</td>
+		<tr>
+			<td>{{$value->parent_email_1}}</td>
+		<tr>
+			<td>{{$value->parent_email_2}}</td>
+		<tr>
+			<td>{{$value->student_email_1}}</td>
+		<tr>
+			<td>{{$value->flanguage}}</td>
+		<tr>
+			<td>{{$value->immigration}}</td>
+		<tr>
+			<td>{{$value->canada_doe}}</td>
+		<tr>
+			<td>{{$value->lia_doe}}</td>
+		<tr>
+			<td>{{$value->dob}}</td>
+		<tr>
+			<td>{{$value->assessment_date}}</td>
+		<tr>
+			<td>{{$value->education_note}}</td>
+		<tr>
+			<td>{{$value->translator}}</td>
+		<tr>
+			<td>{{$value->trans_relationship}}</td>
+		<tr>
+			<td>{{$value->career}}</td>
+		<tr>
+			<td>{{$value->recommendations}}</td>
+
+			
+			
+			
+
+			<!-- we will also add show, edit, and delete buttons -->
+			<td>
+
+				<!-- delete the student (uses the destroy method DESTROY /students/{id} -->
+				<!-- we will add this later since its a little more complicated than the other two buttons -->
+				{{ Form::open(array('url' => 'students/' . $value->id, 'class' => 'pull-right')) }}
+					{{ Form::hidden('_method', 'DELETE') }}
+					{{ Form::submit('Delete Record', array('class' => 'btn btn-warning')) }}
+				{{ Form::close() }}
+
+				<!-- show the student (uses the show method found at GET /students/{id} -->
+				<a class="btn btn-small btn-success" href="{{ URL::to('students/' . $value->id) }}">Show this Student</a>
+
+				<!-- edit this student (uses the edit method found at GET /students/{id}/edit -->
+				<a class="btn btn-small btn-info" href="{{ URL::to('students/' . $value->id . '/edit') }}">Edit this Student</a>
+
+			</td>
+		</tr>
+	@endforeach
+</table>
+</body>
+ 
+ 
+ 
+

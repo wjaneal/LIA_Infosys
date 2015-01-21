@@ -1,0 +1,1 @@
+/var/www/infosys/app/views/languages/show.blade.php
